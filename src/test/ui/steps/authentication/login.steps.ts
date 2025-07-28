@@ -15,11 +15,9 @@ When('I login with username {string} and password {string}', async function (thi
 
 Then('I should be redirected to the inventory page', async function (this: CustomWorld) {
   await this.loginPage.assertLoginSuccess();
-  await this.closeBrowser();
 });
 
 Then('I should see an error message containing {string}', async function (this: CustomWorld, expected: string) {
   const message = await this.loginPage.getErrorMessage();
   expect(message.toLowerCase()).toContain(expected.toLowerCase());
-  await this.closeBrowser();
 });
